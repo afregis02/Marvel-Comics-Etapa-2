@@ -1,0 +1,207 @@
+/* Aseguramos que la imagen de fondo cubra toda la página */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Fondo oscuro semitransparente y margen para el contenedor principal */
+#app {
+  padding-top: 50px; /* Espacio arriba para el título */
+}
+
+/* Barra de navegación fija */
+.navbar {
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 10px 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 15px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Fondo de imagen solo para la sección superior */
+.main-section {
+  background-image: url(../img/2.jpg); /* Aquí pones la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-section h1 {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  margin-bottom: 0;
+}
+
+/* Estilo para el contenido debajo de la sección principal */
+.content {
+  background-color: #fff;
+  padding: 20px;
+  border-top: 5px solid #e63946;
+}
+
+/* Estilo de las categorías y botones de la lista */
+.list-group-item {
+  cursor: pointer;
+  color: #ac2925;
+  font-weight: bold;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: #e63946; /* Fondo rojo */
+  color: white; /* Letras blancas cuando se pasa el cursor */
+  transform: scale(1.05);
+  border-color: #e63946; /* Borde rojo */
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.card-body {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Botones de acción */
+.btn-danger {
+  background-color: #e63946;
+  border-color: #e63946;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-danger:hover {
+  background-color: #d62828;
+  border-color: #ac2925;
+}
+
+/* Barra de búsqueda */
+.input-group .form-control {
+  border-radius: 20px;
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: rgba(232, 221, 221, 0.8);
+  color: #333;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.input-group .form-control:focus {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: #007bff;
+}
+
+/* Títulos principales */
+h1, h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Ajustes para la barra lateral */
+section.container {
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  margin: 80px auto 20px;
+  max-width: 1200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo de las tarjetas de cómics */
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  text-align: center;
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Ajuste de márgenes */
+.row {
+  margin-top: 20px;
+}
+
+.mt-4 {
+  margin-top: 30px;
+}
+
+.mb-4 {
+  margin-bottom: 30px;
+}

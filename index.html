@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvel Comics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Barra de Navegación Fija -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(122, 15, 15);">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto" href="index.html">Mundo Marvel</a>
+    </div>
+  </nav>
+
+  <!-- Barra de Progreso -->
+ 
+  <div id="app" class="container-fluid">
+    <!-- Sección Principal con Fondo de Imagen -->
+    <div class="main-section"></div>
+
+    <!-- Sección de contenido sin imagen de fondo -->
+    <div class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="list-group">
+            <h1 class="text-danger" style="font-family: 'Bangers', cursive;">Personajes</h1>
+            <button v-for="personaje in personajes" :key="personaje" class="list-group-item list-group-item-action" @click="filtrarPorPersonaje(personaje)">
+              {{ personaje }}
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-9">
+          <h2 class="text-danger" style="font-family: 'Bangers', cursive;">Catálogo de Cómics</h2>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar cómic por título" v-model="busqueda" @input="actualizarBarraProgreso">
+          </div>
+          <div class="container mt-3">
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" :class="color" :style="{ width: porcentaje + '%' }">
+                {{ Math.round(porcentaje) }}%
+              </div>
+            </div>
+          </div>
+        
+
+          <div class="row">
+            <div class="col-md-4" v-for="comic in buscarComic" :key="comic.id">
+              <div class="card shadow-lg">
+                <img :src="comic.thumbnail" class="card-img-top" :alt="comic.title">
+                <div class="card-body">
+                  <h5 class="card-title">{{ comic.title }}</h5>
+                  <p class="card-text"><strong>Precio:</strong> {{ comic.price }}</p>
+                  <button type="button" class="btn btn-danger" @click="verDetalle(comic)">Ver Detalles</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="comicsEncontrados > 0" class="mt-4">
+            <p><strong>Se encontraron {{ comicsEncontrados }} cómics</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de Scroll hacia arriba -->
+<button type="button" class="btn btn-danger btn-lg rounded-circle" id="scrollToTop" style="position: fixed; bottom: 20px; right: 20px; display: none;">
+  ↑
+</button>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("scrollToTop");
+
+    // Mostrar el botón cuando se haga scroll hacia abajo
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+
+    // Acción al hacer clic en el botón
+    btn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
+
+
+  <!-- Librerías necesarias -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
